@@ -1,4 +1,4 @@
-const reverseInt = require('./index');
+import { reverseInt } from './reverseint';
 
 test('ReverseInt function exists', () => {
   expect(reverseInt).toBeDefined();
