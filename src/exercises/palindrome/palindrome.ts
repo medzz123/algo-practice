@@ -7,8 +7,19 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindromeOne(str: string) {
+export const palindromeOne = (str: string) => {
   return str.split('').reverse().join('') === str;
-}
+};
 
-export const palindrome = palindromeOne;
+export const palindromeTwo = (str: string) => {
+  const wordLenght = str.length;
+  for (let i = 0; i < Math.floor(wordLenght / 2); i++) {
+    if (str[i] !== str[wordLenght - 1 - i]) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+export const palindrome = palindromeTwo;
