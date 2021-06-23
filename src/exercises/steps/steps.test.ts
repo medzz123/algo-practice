@@ -1,4 +1,5 @@
-const steps = require('./index');
+// @ts-nocheck
+import { steps } from './steps';
 
 beforeEach(() => {
   jest.spyOn(console, 'log');
