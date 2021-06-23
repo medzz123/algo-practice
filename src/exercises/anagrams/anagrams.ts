@@ -12,8 +12,40 @@ function cleanString(word: string) {
   return word.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 }
 
-function anagrams(stringA: string, stringB: string) {
+export const anagramsOne = (stringA: string, stringB: string) => {
   return cleanString(stringA) === cleanString(stringB);
-}
+};
 
-export { anagrams };
+export const anagramsTwo = (stringA: string, stringB: string) => {
+  const mapA = {};
+  const mapB = {};
+
+  const cleanA = stringA.replace(/[^\w]/g, '').toLowerCase();
+  const cleanB = stringB.replace(/[^\w]/g, '').toLowerCase();
+
+  for (const char of cleanA) {
+    mapA[char] = mapA[char] + 1 || 1;
+  }
+
+  for (const char of cleanB) {
+    mapB[char] = mapB[char] + 1 || 1;
+  }
+
+  if (Object.keys(mapA).length !== Object.keys(mapB).length) {
+    return false;
+  }
+
+  for (const char in mapA) {
+    if (!mapB[char]) {
+      return false;
+    }
+
+    if (mapB[char] !== mapA[char]) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+export const anagrams = anagramsTwo;
