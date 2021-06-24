@@ -1,4 +1,4 @@
-const vowels = require('./index');
+import { vowels } from './vowels';
 
 test('Vowels is a function', () => {
   expect(typeof vowels).toEqual('function');
