@@ -15,6 +15,28 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-export const matrixOne = (n: number) => {};
+export const matrixOne = (n: number) => {
+  let col = 0;
+  let row = 0;
+  const dir = { x: 1, y: 0 };
+  const m = Array.from(Array(n), () => new Array(n).fill(null));
+
+  for (let i = 1; i <= n * n; i++) {
+    m[row][col] = i;
+
+    if (dir.x !== 0 && m[row]?.[col + dir.x] !== null) {
+      dir.y = dir.x === 1 ? 1 : -1;
+      dir.x = 0;
+    } else if (dir.y !== 0 && m[row + dir.y]?.[col] !== null) {
+      dir.x = dir.y === 1 ? -1 : 1;
+      dir.y = 0;
+    }
+
+    row = row + dir.y;
+    col = col + dir.x;
+  }
+
+  return m;
+};
 
 export const matrix = matrixOne;
