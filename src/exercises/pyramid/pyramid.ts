@@ -14,14 +14,14 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n, row = 0, level = '') {
+export const pyramidOne = (n, row = 0, level = '') => {
   if (row === n) {
     return n;
   }
 
   if (level.length === 2 * n - 1) {
     console.log(level);
-    return pyramid(n, row + 1);
+    return pyramidOne(n, row + 1);
   }
 
   const mid = Math.floor((2 * n - 1) / 2);
@@ -32,25 +32,18 @@ function pyramid(n, row = 0, level = '') {
     add = '#';
   }
 
-  pyramid(n, row, level + add);
-}
+  pyramidOne(n, row, level + add);
+};
 
-module.exports = pyramid;
+export const pyramidTwo = (n: number) => {
+  const total = 2 * n - 1;
 
-// function pyramid(n) {
-//   const mid = Math.floor((2 * n - 1) / 2);
+  for (let i = 1; i <= n; i++) {
+    const hash = '#'.repeat(2 * i - 1);
+    const side = ' '.repeat((total - (2 * i - 1)) / 2);
 
-//   for (let row = 0; row < n; row++) {
-//     let level = '';
+    console.log(side + hash + side);
+  }
+};
 
-//     for (let column = 0; column < 2 * n - 1; column++) {
-//       if (mid - row <= column && mid + row >= column) {
-//         level += '#';
-//       } else {
-//         level += ' ';
-//       }
-//     }
-
-//     console.log(level);
-//   }
-// }
+export const pyramid = pyramidTwo;

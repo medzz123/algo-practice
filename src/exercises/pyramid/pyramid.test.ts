@@ -1,4 +1,5 @@
-const pyramid = require('./index');
+// @ts-nocheck
+import { pyramid } from './pyramid';
 
 beforeEach(() => {
   jest.spyOn(console, 'log');
