@@ -5,11 +5,13 @@
 // removing it.
 
 class Queue {
+  data: unknown[];
+
   constructor() {
     this.data = [];
   }
 
-  add(record) {
+  add(record: unknown) {
     this.data.unshift(record);
   }
 
@@ -22,4 +24,4 @@ class Queue {
   }
 }
 
-module.exports = Queue;
+export { Queue };

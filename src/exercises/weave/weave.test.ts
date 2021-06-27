@@ -1,5 +1,5 @@
-const weave = require('./index');
-const Queue = require('./queue');
+import { Queue } from './queue';
+import { weave } from './weave';
 
 test('queues have a peek function', () => {
   const q = new Queue();
