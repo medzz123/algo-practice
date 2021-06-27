@@ -9,12 +9,14 @@
 //     q.remove(); // returns 1;
 
 class Queue {
+  data: unknown[];
+
   constructor() {
     this.data = [];
   }
 
-  add(record) {
-    this.data.unshift(record);
+  add(element: unknown) {
+    this.data.unshift(element);
   }
 
   remove() {
@@ -22,4 +24,4 @@ class Queue {
   }
 }
 
-module.exports = Queue;
+export { Queue };
